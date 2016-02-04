@@ -1,0 +1,162 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5775,        153]
+NotebookOptionsPosition[      5411,        135]
+NotebookOutlinePosition[      5765,        151]
+CellTagsIndexPosition[      5722,        148]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"x", "=", 
+   RowBox[{
+    RowBox[{"2", 
+     SqrtBox["3"]}], "-", "3"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", 
+   RowBox[{
+    FractionBox[
+     SqrtBox["3"], "2"], 
+    RowBox[{"(", 
+     RowBox[{"1", "-", "x"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", 
+   RowBox[{
+    FractionBox["1", "2"], 
+    RowBox[{"(", 
+     RowBox[{"1", "-", "x"}], ")"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.648644356556307*^9, 3.648644377618938*^9}, {
+  3.648722420082447*^9, 3.648722470986701*^9}, {3.648722535522937*^9, 
+  3.648722536256433*^9}, {3.6487227461538353`*^9, 3.648722751531126*^9}, {
+  3.6487228251513433`*^9, 3.648722856905357*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", "1", ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "\[Pi]"}], "}"}]}], "]"}], ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "b"}], ",", "a"}], "}"}], ",", "x"}], "]"}], ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"b", ",", "a"}], "}"}], ",", "x"}], "]"}], ",", " ", 
+      RowBox[{"Point", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}], "}"}], "]"}]}], "}"}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6486442260234947`*^9, 3.648644270456646*^9}, {
+  3.648644301966189*^9, 3.648644346842704*^9}, {3.648644380952553*^9, 
+  3.648644384582233*^9}, {3.648644425561673*^9, 3.648644529538066*^9}, {
+  3.648644788441598*^9, 3.6486448051549892`*^9}, {3.6486448496441917`*^9, 
+  3.648644850490575*^9}, {3.648644883096611*^9, 3.6486449038487473`*^9}, {
+  3.648722388295439*^9, 3.64872240408852*^9}, {3.648722448866818*^9, 
+  3.648722505071403*^9}, {3.648722542662434*^9, 3.648722597835779*^9}, {
+  3.6487226306756363`*^9, 3.648722674231889*^9}, {3.6487227713406763`*^9, 
+  3.6487228129159307`*^9}, {3.648722866452714*^9, 3.6487228912316113`*^9}, {
+  3.648722941139941*^9, 3.648722962475697*^9}, {3.648722992611436*^9, 
+  3.648723115543549*^9}, {3.648726087396699*^9, 3.6487261662052383`*^9}, {
+  3.6487262037042913`*^9, 3.6487262310070553`*^9}, {3.648726310467977*^9, 
+  3.6487263223402843`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Theta]$$ = 1.853539665617978, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Theta]$$], 0, Pi}}, Typeset`size$$ = {
+    360., {108., 113.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Theta]$6241$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Theta]$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Theta]$$, $CellContext`\[Theta]$6241$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics[{
+         Circle[{0, 0}, 1, {0, Pi}], 
+         Circle[{-$CellContext`b, $CellContext`a}, $CellContext`x], 
+         Circle[{$CellContext`b, $CellContext`a}, $CellContext`x], 
+         Point[{
+           Cos[$CellContext`\[Theta]$$], 
+           Sin[$CellContext`\[Theta]$$]}]}], 
+      "Specifications" :> {{$CellContext`\[Theta]$$, 0, Pi}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {152., 157.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.648722754871737*^9, 3.6487227802697783`*^9}, {
+  3.648722880532625*^9, 3.648722892357726*^9}, {3.648722944377054*^9, 
+  3.648722963001073*^9}, {3.6487230033351307`*^9, 3.64872301150193*^9}, {
+  3.648723058933733*^9, 3.6487231158258677`*^9}, {3.648726151035367*^9, 
+  3.648726169671126*^9}, {3.64872622289494*^9, 3.6487262314676933`*^9}, {
+  3.648726319713098*^9, 3.6487263232296762`*^9}}]
+}, Open  ]]
+},
+WindowSize->{994, 730},
+WindowMargins->{{43, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 23, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 728, 22, 117, "Input"],
+Cell[CellGroupData[{
+Cell[1311, 46, 1832, 41, 46, "Input"],
+Cell[3146, 89, 2249, 43, 326, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

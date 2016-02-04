@@ -1,0 +1,95 @@
+<TeXmacs|1.99.2>
+
+<style|article>
+
+<\body>
+  We solve for <math|a>:
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|a>|<cell|=>|<cell|<around*|(|<frac|1|c>-<frac|1|b>|)><rsup|-1>>>|<row|<cell|>|<cell|=>|<cell|<frac|b
+    c|b-c>>>|<row|<cell|>|<cell|=>|<cell|c+<frac|c<rsup|2>|b-c>>>>>
+  </eqnarray*>
+
+  where the last line was achieved with polynomial long division. So, we can
+  enumerate the solutions by iterating <math|b> over the divisors of
+  <math|c<rsup|2>>, each plus <math|c>. However, it may be the case that we
+  get duplicate <math|<around*|(|a,b,c|)>> triples by switching <math|a> and
+  <math|b>, that is
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|c+<frac|c<rsup|2>|b-c>>|<cell|=>|<cell|a>>>>
+  </eqnarray*>
+
+  and
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|c+<frac|c<rsup|2>|a-c>>|<cell|=>|<cell|b>>>>
+  </eqnarray*>
+
+  See that this occurs when
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|c+<frac|c<rsup|2>|c+<frac|c<rsup|2>|b-c>-c>>|<cell|=>|<cell|b>>>>
+  </eqnarray*>
+
+  by combining the above two equations; but it reduces to equality! Thus,
+  we'll get a duplicate for <with|font-shape|italic|every> viable <math|b>.
+  Note, however, that when <math|c<rsup|2>> has an odd number of divisors
+  then there must be some value such that
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|c+<frac|c<rsup|2>|b-c>>|<cell|=>|<cell|b>>>>
+  </eqnarray*>
+
+  since <math|><math|c+<frac|c<rsup|2>|b-c>> is injective. Thus, with
+  <math|d<around*|(|n|)>> denoting the number of divisors, the number of
+  solutions is
+
+  <\equation*>
+    <around*|\<lfloor\>|<frac|d<around*|(|c<rsup|2>|)>+1|2>|\<rfloor\>>
+  </equation*>
+
+  for any parity of <math|\<sigma\><rsub|0><around*|(|c<rsup|2>|)>>.
+
+  So how do we calculate <math|d<around*|(|n|)>>? First, we use the
+  fundamental theorem of arithmetic to write
+  <math|n=<big|prod>p<rsup|\<alpha\>>>. Then, we can use the principle of
+  counting! That is, since divisors <math|m\|n> must be composed of
+  <math|n>'s primes, we can construct each <math|m> by choosing what primes
+  to include. For each prime, we can either not choose it or choose a power
+  up to <math|\<alpha\>>... so <math|\<alpha\>+1> choices per prime. Hence,
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|d<around*|(|n|)>>|<cell|=>|<cell|<big|prod><around*|(|\<alpha\>+1|)>>>>>
+  </eqnarray*>
+
+  See now that by this equation <math|d<around*|(|c<rsup|2>|)>> must be odd,
+  since each of <math|\<alpha\>> in its factorization will be even, and since
+  the product of odd numbers is odd. So, we can simply the number of
+  solutions to
+
+  <\equation*>
+    <frac|d<around*|(|c<rsup|2>|)>+1|2>
+  </equation*>
+
+  Now, we want to find the minimum <math|c> to for which this equation
+  exceeds 1000. So we seek
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|min<rsub|c>
+    d<around*|(|c<rsup|2>|)>>|<cell|\<less\>>|<cell|1999>>>>
+  </eqnarray*>
+
+  It will first be useful to put a bound on the number of primes <math|c>
+  will contain. That way we can more quickly calculate
+  <math|d<around*|(|c<rsup|2>|)>> for each candidate <math|c>. Suppose we
+  restrict ourselves to using the first <math|k> distinct (smallest) primes
+  in <math|c>, then \ <math|d<around*|(|c<rsup|2>|)>=<around*|(|2+1|)><rsup|k>>.
+  Thus,
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|k>|<cell|\<less\>>|<cell|log<rsub|3>1999>>|<row|<cell|>|<cell|\<less\>>|<cell|7>>>>
+  </eqnarray*>
+
+  Bam, now we can lightning speed find a solution.
+</body>

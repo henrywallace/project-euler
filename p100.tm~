@@ -1,0 +1,36 @@
+<TeXmacs|1.99.2>
+
+<style|article>
+
+<\body>
+  Let <math|b,n> respectively denote the number of blue and total balls. We
+  seek the equality\ 
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|<frac|b|n>\<cdot\><frac|b-1|n-1>>|<cell|=>|<cell|<frac|1|2>>>|<row|<cell|2b<rsup|2>-2b-n<around*|(|n-1|)>>|<cell|=>|<cell|0>>>>
+  </eqnarray*>
+
+  which, according to the standard quadratic equation, has solution
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|b>|<cell|=>|<cell|<frac|2+<sqrt|4+8n<around*|(|n-1|)>>|4>>>>>
+  </eqnarray*>
+
+  Let, <math|k=<sqrt|4+8n<around*|(|n-1|)>>>, and since <math|b> must be an
+  integer
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|k>|<cell|\<equiv\>>|<cell|2 mod
+    4>>|<row|<cell|k<rsup|2>>|<cell|\<equiv\>>|<cell|0 mod 4>>>>
+  </eqnarray*>
+
+  That is, <math|4\|<around*|(|4+8n<around*|(|n-1|)>|)>>, which implies that
+  <math|4\|n<around*|(|n-1|)>>. Thus, <math|n> need only run through the set
+
+  <\equation*>
+    <around*|{|4t,4t+1\<of\>t\<in\>\<bbb-N\>|}>
+  </equation*>
+
+  We may be able to achieve a better bound though. Suppose that there exists
+  some
+</body>
