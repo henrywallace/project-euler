@@ -1,20 +1,9 @@
 from fractions import Fraction
-
-def memoize(func):
-    seen = {}
-    k = 0
-    def wrapper(*args):
-        if args not in seen:
-            seen[args] = func(*args)
-        else:
-            k += 1
-            print(k)
-        return seen[args]
-    return wrapper
+from functools import lru_cache
 
 def nsols():
     pool = [Fraction(1, n**2) for n in range(2, 20)]
-    @memoize
+    @lru_cache()
     def recur(x, i):
         if x == 0:
             return 1
