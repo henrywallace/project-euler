@@ -1,93 +1,95 @@
 '''Project Euler Problem 203
 
-We yield squarefree binomials from `squarefree_binomials`. This is done by
-inspecting each binomial's prime factorization.
+The function `squarefree_binomials` yields distinct squarefree binomials. This
+is done by inspecting each binomial's prime factorization, and deduping.
 
-While we iterate over Pascal's Triangle's rows, we save each new integer's
-factorization, computing successive factorizations from previous integers'.
+We compute the factorization of each row number, remembering each
+factorizations, and the primes among the way.
 
-The function `iter_factors` yields factorizations successive integers starting
-at `start=0`.
-
-Note that `squarefree_binomials` could be optimized more by first yielding 1,
-and iterating `k` over `range(1, n//2 + 1)`, since I thought it muddled things.
+TODO: What's the runtime? Specifically, what's the complexity of factorization,
+with a list of primes?
 
 '''
 from collections import Counter
-from itertools import count, islice
+from itertools import count
+from math import sqrt
 
 
-def iter_factors(start):
+def iter_factors(start=2):
     '''Yield prime factorizations for successive integers starting at `start`.
 
+    Each factorizationss is represented by a `Counter`, whose keys are primes,
+    and whose values are corresponding exponents. Note that 1 then has
+    factorization `Counter()`.
+
     Yields:
-        Tuples of `(n, factors)`, where `factors` is a Counter whose keys
-        are primes, and whose values are the exponents of those primes in `n`'s
-        factorization.
+        `Counter`s, representing factorizations, whose keys are primes, and
+        whose values are corresponding exponents.
 
     '''
-    primes = []
+    assert start > 0 and isinstance(start, int)
+
+    primes = []  # primes will be kept in sorted order
 
     for n in count(start):
-        m = n
         factors = Counter()
-        
+
+        bound = int(sqrt(n))  # since at minimum `n` = (some prime)^2
         for p in primes:
-            while m % p == 0:
-                m //= p
+            if p > bound:
+                break
+            while n % p == 0:
+                n //= p
                 factors[p] += 1
 
-        if not factors and n > 1:  # then n is prime
-            primes.append(n)
-            factors = Counter({n: 1})
+        if n > 1:  # then n is prime
+            factors[n] = 1
+            if not primes or n > primes[-1]:  # skip primes we've seen before
+                primes.append(n)
 
-        yield n, factors
+        yield factors
 
 
 def squarefree_binomials(num_rows):
-    '''Yield squarefree binomials from the first `num_rows` rows.
+    '''Yields distinct squarefree binomials from the first `num_rows` rows.
 
-    Only the first n//2 + 1 columns of each row are iterated over.
+    Distinct squarefree binomials are yielded in the order it would have first
+    been seen in row-major order.
 
     Args:
         num_rows: Number of rows to iterate over, starting at 0.
     Yields:
-        Squarefree binomials in row-major order, stopping at column n//2 + 1.
+        Distinct squarefree binomials in row-major order, stopping at column
+        n//2 + 1.
 
     '''
-    factorizations = {}
-    
-    for n, factors in islice(iter_factors(start=0), num_rows):
-        factorizations[n] = factors
-        
-        for k in range(n//2 + 1):  # since (n, k) == (n - k, k)
-            if k == 0 or k == n:   # boundary values are squarefree
-                yield 1
-                continue
+    yield 1
+    seen = {1}
 
+    factorizations = {}
+
+    # loop over n, k starting from row 1
+    for n, factors in zip(range(1, num_rows), iter_factors(start=1)):
+        factorizations[n] = factors
+
+        for k in range(1, n//2 + 1):  # since (n, k) == (n - k, k)
             factors = Counter()
             for m in range(n - k + 1, n + 1):  # n! / (n - k)!
                 factors += factorizations[m]
             for m in range(2, k + 1):          # k!
                 factors -= factorizations[m]
-                
-            binomial = 1
+
+            binomial = 1   # construct the binomial from its factorization
             for p, e in factors.items():
-                if e > 1:
+                if e > 1:  # divisible by a square
                     break
                 binomial *= p**e
             else:
-                yield binomial
-
-
-def distinct_sum(num_rows):
-    '''Return the sum of distinct squarefree numbers from the first `num_rows`
-    rows.
-
-    '''
-    return sum(set(squarefree_binomials(num_rows)))
+                if binomial not in seen:
+                    seen.add(binomial)
+                    yield binomial
 
 
 if __name__ == '__main__':
-    print(distinct_sum(8))
-    print(distinct_sum(51))
+    print(sum(squarefree_binomials(8)))
+    print(sum(squarefree_binomials(51)))
