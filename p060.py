@@ -1,5 +1,10 @@
+from itertools import combinations, permutations
+
+
 def sieve(bound):
-    if bound < 2: return []
+    if bound < 2:
+        return []
+
     primes = [2]
     for k in range(3, bound, 2):
         s = int(k**0.5)
@@ -11,9 +16,9 @@ def sieve(bound):
                 break
         else:
             primes.append(k)
+
     return primes
 
-from itertools import combinations, permutations, starmap
 
 concat = lambda *strs: ''.join(strs)
 

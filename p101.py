@@ -1,5 +1,6 @@
 def lagrange_interp(xs, ys):
     xs, ys = map(list, (xs, ys))
+
     def func(a):
         ans = 0
         for i, y in enumerate(ys):
@@ -10,6 +11,7 @@ def lagrange_interp(xs, ys):
                 t *= (a - x)/(xs[i] - x)
             ans += t
         return ans
+
     return func
 
 u = lambda n: sum((-1)**i * n**i for i in range(11))
@@ -22,5 +24,3 @@ for k in range(1, 10 + 1):
     f = lagrange_interp(range(1, k + 1), ys)
     s += f(k + 1)
 print(round(s))
-
-

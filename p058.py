@@ -1,9 +1,11 @@
 from random import randint
 
+
 def is_prime(n, trials=16):
     # rabin miller primality test
     assert(n > 1)
-    if n == 2: return True
+    if n == 2:
+        return True
     l, m = 0, n - 1
     while m % 2 == 0:
         m //= 2

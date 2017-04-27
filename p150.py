@@ -1,5 +1,6 @@
 from itertools import chain, islice
 
+
 def s_generator():
     t = 0
     for k in range(1, 500500 + 1):
@@ -21,6 +22,7 @@ for i, s in enumerate(s_generator(), start=1):
 #     [-3, 8, 23, -26],
 #     [1, -4, -5, -18, 5],
 #     [-16, 31, 2, 9, 28, 3]]
+
 
 def stride_sums(row, stride):
     # runs O(row)

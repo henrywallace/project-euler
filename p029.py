@@ -1,4 +1,3 @@
 from itertools import product
 
-print(len(set(a**b for a, b in \
-	product(range(2, 101), range(2, 101)))))
+print(len({a**b for a, b in product(range(2, 101), range(2, 101))}))

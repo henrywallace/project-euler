@@ -5,6 +5,7 @@ primes below 30//2 are
 6 + 3 + 1
 """
 
+
 def sieve(bound):
     primes, sieve = [], [True]*(bound + 1)
     for p in range(2, bound + 1):
@@ -13,6 +14,7 @@ def sieve(bound):
             for i in range(p**2, bound + 1, p):
                 sieve[i] = False
     return primes
+
 
 def index(a, n):
     # binary search to return index of largest p in a <= n

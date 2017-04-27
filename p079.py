@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 from functools import reduce
 
 graph = defaultdict(set)
@@ -9,6 +10,7 @@ with open('p079_keylog.txt') as f:
         graph[a].add(c)
         graph[b].add(c)
         unique.update([a, b, c])
+
 
 def find_path(graph):
     # Kahn 1962 topological sort
@@ -24,6 +26,3 @@ def find_path(graph):
     return l
 
 print(''.join(find_path(graph)))
-
-
-

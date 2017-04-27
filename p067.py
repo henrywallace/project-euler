@@ -3,6 +3,7 @@ with open('p067_triangle.txt') as f:
     for nums in f.readlines():
         tri.append([int(n) for n in nums.split()])
 
+
 def max_sum(tri):
     # assumes all entries are non-negative
     # changes entries of tri

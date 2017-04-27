@@ -1,4 +1,4 @@
-from decimal import *
+from decimal import Decimal, getcontext
 
 getcontext().prec = 102     # to get around rounding
 

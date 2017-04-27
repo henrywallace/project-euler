@@ -1,5 +1,6 @@
 from itertools import chain
 
+
 def min_path(a):
     for i, j in chain(((k, 0) for k in range(1, len(a))),
                       ((len(a) - 1, k) for k in range(1, len(a[0])))):

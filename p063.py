@@ -1,4 +1,5 @@
-from math import log10, ceil
+from math import ceil
+
 
 k = 0
 for m in range(1, 21 + 1):

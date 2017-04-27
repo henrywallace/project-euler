@@ -1,22 +1,23 @@
-'''Project Euler Problem 203
+"""
+Project Euler Problem 203
 
 The function `squarefree_binomials` yields distinct squarefree binomials. This
-is done by inspecting each binomial's prime factorization, and deduping.
+is done by inspecting each binomial's factorization, and deduping.
 
 We compute the factorization of each row number, remembering each
-factorizations, and the primes among the way.
+factorization, and the prime among the way.
 
-TODO: What's the runtime? Specifically, what's the complexity of factorization,
-with a list of primes?
-
-'''
+TODO: What's the runtime? Specifically, what's the complexity of
+factorization, with a list of primes?
+"""
 from collections import Counter
 from itertools import count
 from math import sqrt
 
 
 def iter_factors(start=2):
-    '''Yield prime factorizations for successive integers starting at `start`.
+    """
+    Yield prime factorizations for successive integers starting at `start`.
 
     Each factorizationss is represented by a `Counter`, whose keys are primes,
     and whose values are corresponding exponents. Note that 1 then has
@@ -25,8 +26,7 @@ def iter_factors(start=2):
     Yields:
         `Counter`s, representing factorizations, whose keys are primes, and
         whose values are corresponding exponents.
-
-    '''
+    """
     assert start > 0 and isinstance(start, int)
 
     primes = []  # primes will be kept in sorted order
@@ -51,7 +51,8 @@ def iter_factors(start=2):
 
 
 def squarefree_binomials(num_rows):
-    '''Yields distinct squarefree binomials from the first `num_rows` rows.
+    """
+    Yields distinct squarefree binomials from the first `num_rows` rows.
 
     Distinct squarefree binomials are yielded in the order it would have first
     been seen in row-major order.
@@ -61,14 +62,13 @@ def squarefree_binomials(num_rows):
     Yields:
         Distinct squarefree binomials in row-major order, stopping at column
         n//2 + 1.
-
-    '''
+    """
     yield 1
     seen = {1}
 
     factorizations = {}
 
-    # loop over n, k starting from row 1
+    # Loop over n, k starting from row 1
     for n, factors in zip(range(1, num_rows), iter_factors(start=1)):
         factorizations[n] = factors
 

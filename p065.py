@@ -9,11 +9,13 @@ def e_terms():
         i += 1
         i %= 3
 
+
 def frac_approx(k, init, terms):
     assert(k > 0)
     if k == 1:
         return init
     terms = iter(terms)     # to allow recursion with `next`
+
     def recur(j):
         if j == 0:
             return (0, 1)
@@ -23,9 +25,9 @@ def frac_approx(k, init, terms):
             return (d, t*d + n)
         except StopIteration:
             raise
+
     n, d = recur(k - 1)
     return (init*d + n, d)
 
 (n, d) = frac_approx(100, 2, e_terms())
 print(sum(int(x) for x in str(n)))
-

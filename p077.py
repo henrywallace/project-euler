@@ -1,12 +1,16 @@
 def memoize(func):
     seen = {}
+
     def wrapper(*args):
         if args not in seen:
             seen[args] = func(*args)
         return seen[args]
+
     return wrapper
 
+
 def npartitions(n, pool):
+
     @memoize
     def recur(x, i):
         if x == 0:
@@ -15,7 +19,9 @@ def npartitions(n, pool):
             return 0
         else:
             return recur(x - pool[i], i) + recur(x, i + 1)
+
     return recur(n, 0)
+
 
 def primes():
     yield 2

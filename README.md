@@ -1,3 +1,3 @@
 # Project Euler Problems
 
-Explanations for straight-forward problems are in code comments. Username is henrywallace.
+Explanations for straight-forward problems are in code comments.

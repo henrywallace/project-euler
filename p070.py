@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 def sieve(bound):
     if bound < 2:
         return []
@@ -15,6 +16,7 @@ def sieve(bound):
         else:
             primes.append(k)
     return primes
+
 
 def is_perm(n, m):
     s, t = str(n), str(m)

@@ -5,6 +5,7 @@ a = [
     [537, 699, 497, 121, 956],
     [805, 732, 524, 37, 331]]
 
+
 def min_sum(a):
     b = [[0]*len(a[0]) for _ in range(len(a))]
     for i in range(len(a)):

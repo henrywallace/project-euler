@@ -1,4 +1,7 @@
-"""Note that 1 + 1/(2 + ...) = 1 + 1/(1 + (1 + 1/(2 + ...))) so that the problem is self-similar. So I proceed by a simple loop."""
+"""
+Note that 1 + 1/(2 + ...) = 1 + 1/(1 + (1 + 1/(2 + ...))) so that the problem
+is self-similar. So I proceed by a simple loop.
+"""
 
 s = 0
 n, d = 1, 1

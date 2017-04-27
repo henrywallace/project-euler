@@ -1,9 +1,10 @@
 from collections import namedtuple, defaultdict
-from itertools import combinations
+
 
 Card = namedtuple('Card', ['rank', 'suit'])
 rank_value = {rank: value for value, rank in
               enumerate('23456789TJQKA', start=2)}
+
 
 def get_combos(cards):
     combos = []
@@ -11,7 +12,7 @@ def get_combos(cards):
     for card in cards:
         value = rank_value[card.rank]
         value_bins[value] = card
-    
+
     # High Card
     combos += [(1, rank_value[card.rank]) for card in cards]
 
@@ -20,16 +21,11 @@ def get_combos(cards):
         if len(bin) == 2:
             combos.append((2, value))
 
-    
-
 
 def parse_line(line):
     cards = [Card(*code) for code in line.split()]
     hand1, hand2 = cards[:5], cards[:5]
     return hand1, hand2
-
-
-
 
 
 if __name__ == '__main__':

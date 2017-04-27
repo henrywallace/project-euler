@@ -1,5 +1,7 @@
 def prime_list(n):
-    if n < 1: return []
+    if n < 1:
+        return []
+
     primes = [2]
     k = 3
     while len(primes) < n:
@@ -13,6 +15,7 @@ def prime_list(n):
         else:
             primes.append(k)
         k += 1
+
     return primes
 
 primes = prime_list(13)

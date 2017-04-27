@@ -1,5 +1,6 @@
 from functools import lru_cache
 
+
 @lru_cache()
 def ackermann(m, n):
     if m == 0:
@@ -8,5 +9,6 @@ def ackermann(m, n):
         return ackermann(m - 1, 1)
     else:
         return ackermann(m - 1, ackermann(m, n - 1))
+
 
 print(ackermann(4, 4))

@@ -8,4 +8,5 @@ for d in range(1, bound + 1):
             break
         elif y > x:
             a, b, x = n, d, y
+
 print(a, b, x)

@@ -1,5 +1,7 @@
 def sieve(bound):
-    if bound < 2: return []
+    if bound < 2:
+        return []
+
     primes = [2]
     for k in range(3, bound, 2):
         s = int(k**0.5)
@@ -9,6 +11,7 @@ def sieve(bound):
                 break
             elif k % p == 0:
                 break
+
     return primes
 
 bound = 50*10**6

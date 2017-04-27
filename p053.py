@@ -1,5 +1,6 @@
 from math import log10
 
+
 s = 0
 for n in range(1, 101):
     for r in range(0, n + 1):

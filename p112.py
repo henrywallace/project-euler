@@ -1,11 +1,12 @@
 from fractions import Fraction
 
+
 def is_bouncy(n):
     inc = False
     dec = False
-    prev, n = n%10, n//10
+    prev, n = n % 10, n//10
     while n > 0:
-        curr, n = n%10, n//10
+        curr, n = n % 10, n//10
         if curr < prev:
             inc = True
         elif curr > prev:

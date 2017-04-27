@@ -1,12 +1,17 @@
-"""We'll create a set of 4 digit primes, and then go through all arithmetic sequences. Let p be the smallest 4 digit prime. Then we want p + 2x < 10**4. That is, we can bound our arithmetic increase by (10**4 - p)//2."""
+"""
+We'll create a set of 4 digit primes, and then go through all arithmetic
+sequences. Let p be the smallest 4 digit prime. Then we want p + 2x < 10**4.
+That is, we can bound our arithmetic increase by (10**4 - p)//2.
+"""
 
 from collections import Counter
 from itertools import islice
 
+
 def are_permuations(*nums):
     num_strs = [str(n) for n in nums]
-    return all(Counter(a) == Counter(b) for a, b in \
-        zip(num_strs, islice(num_strs, 1, None)))
+    return all(Counter(a) == Counter(b) for a, b in
+               zip(num_strs, islice(num_strs, 1, None)))
 
 primes = [2]
 k = 3
@@ -33,6 +38,3 @@ for x in range(1, (10**4 - primes[0])//2 + 1):
             special.append(series)
             print(series)
 print(''.join(map(str, special[1])))
-
-
-

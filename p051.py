@@ -1,5 +1,6 @@
 from itertools import combinations
 
+
 def sieve(bound):
     # bound exclusive
     primes, sieve = [], [True]*bound
@@ -9,6 +10,7 @@ def sieve(bound):
             for j in range(i**2, bound, i):
                 sieve[j] = False
     return primes
+
 
 def digit_replace(s, ind, r):
     return ''.join(r if i in ind else x for i, x in enumerate(s))
@@ -25,4 +27,4 @@ for p in primes:
                     t.append(q)
                 if len(t) == 8:
                     print(t)
-                    exit()
+                    exit(0)

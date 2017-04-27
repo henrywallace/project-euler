@@ -1,5 +1,6 @@
 from itertools import chain
 
+
 def phi(n):
     t = n
     for d in chain([2], range(3, int(n**0.5) + 1, 2)):
